@@ -62,7 +62,18 @@ namespace Homework_4__IVT_21B_Nick_Pustovoy
             }
             Console.WriteLine("Сумма между первым и последним нулевыми элементами:");
             Console.WriteLine(sum);
-
+            int c = 0;
+            int u = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (a[i] <= -1)
+                {      
+                    c = a[i];
+                    a[i] = a[u];
+                    a[u] = c;
+                    u = u + 1;
+                }
+            }
         }
     }
 }

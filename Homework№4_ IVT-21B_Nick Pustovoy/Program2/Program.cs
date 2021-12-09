@@ -23,7 +23,7 @@ namespace Program2
             {
                 for (int j = 0; j < m; j++)
                 {
-                    array[i, j] = rand.Next(-2, 5);
+                    array[i, j] = rand.Next(0, 3);
                 }
             }
             Console.WriteLine("Матрица:");
@@ -47,6 +47,38 @@ namespace Program2
             }
             Console.WriteLine("Кол-во столбцов с нулевым элементом");
             Console.WriteLine(counter);
+            int c = 1;
+            int max = 0;
+            int number = 0;
+            for (int i = 0; i < n; i++)
+            {
+                c = 1;
+                for (int j = 0; j < m - 1; j++)
+                {
+                    if (array[i, j] == array[i, j + 1])
+                    {
+                        c = c + 1;
+                    }
+                    else
+                    {
+                        c = 1;
+                    }
+                    if (max < c)
+                    {
+                        number = i;
+                        max = c;
+                    }
+                }         
+            }
+            if (max == 1)
+            {
+                Console.WriteLine("Одинаковых цифр нет");
+            }
+            else
+            {
+                Console.WriteLine("Ответ:" + max);
+            }
+            Console.WriteLine("Номер строки:" + number);
         }
     }
 }
